@@ -12,6 +12,7 @@
     padding-top: 30px;
     box-shadow: 2px 2px 2px white;
 }
+
 body{
     background-color: #5D001E;
     /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHGLFNMrWGin89NrxEisL7tj9dZ0ohVHGTdtZw0LnbZnJqUo-to1xQEPTMVUYHXFaLah0&usqp=CAU");
@@ -20,9 +21,12 @@ body{
     background-size:cover; */
 
 }
+
+
 @keyframes guess{
-    from{ margin-left:0px;}   
-    to{margin-left: 500px;}
+    /* from{ margin-left:0px;}    */
+    from{transform: translateX(0px);}   
+    to{transform: translateX(10vw);}
    }
 h1{
     text-transform: uppercase;
@@ -111,3 +115,49 @@ p{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 500;
 }
+@media screen and (max-width: 480px) {
+    .main {
+      height: 100vh;
+      width: 100vw;
+        
+    }
+    h1{
+        font-size: 18px;
+        text-align: left;
+        padding-left: 10px;
+    }
+    #guess-number{
+        font-size: 18px;
+    }
+    #answer{
+        font-size: 18px;
+        text-align: left;
+        margin-left: 45px;
+    
+    }
+    #start{
+        height: 40px;
+        width: 80px;
+        font-size:10px ;
+    }
+    #clue-button{
+        height: 40px;
+        width: 80px;
+        font-size: 10px;
+    }
+    input{
+        width: 150px;
+        height: 40px;
+        font-size: 20px;
+    }
+    #check{
+        height: 45px;
+        width: 90px;
+        font-size: 15px;
+        font-size: 15px;
+    }
+    p{
+        
+        font-size: 15px;
+    }
+  }
