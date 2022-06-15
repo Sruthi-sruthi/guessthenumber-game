@@ -1,23 +1,46 @@
 let random;
 let clue1, clue2, clue3;
 document.getElementById("start").addEventListener("click", (e) => {
+  clue1 = false;
+  clue2 = false;
+  clue3 = false;
   showElements();
   randomNumber();
   e.target.innerText = "try again";
 });
+let count = 1;
 
 document.getElementById("check").addEventListener("click", () => {
   let result = document.getElementById("number").value;
   //   console.log(result);
-  if (result == random) {
-    // console.log("your guess is correct");
-    document.getElementById("answer").innerHTML =
-      "ANSWER :  your guess is correct";
+  if (count <= 3) {
+    if (result == random) {
+      // console.log("your guess is correct");
+      document.getElementById("answer").innerHTML =
+        "ANSWER :  your guess is correct";
+    }
+    // console.log("your guess is wrong");
+    else
+      document.getElementById("answer").innerHTML =
+        "ANSWER :  your guess is wrong";
+    count++;
+  } else {
+    // console.log("your try is over.Answer is:", random);
+    let hide = document.getElementsByClassName("hide");
+    hide = [...hide];
+    hide.forEach((single) => {
+      // console.log(single);
+      single.style.visibility = "hidden";
+    });
+    let allclue = document.getElementsByClassName("singleclue");
+    allclue = [...allclue];
+    allclue.forEach((single) => {
+      // console.log(single);
+      single.innerHTML = "";
+    });
+    document.getElementById("final-answer").innerHTML =
+      "Your try is over, Answer is: " + random;
   }
-  // console.log("your guess is wrong");
-  else
-    document.getElementById("answer").innerHTML =
-      "ANSWER :  your guess is wrong";
 });
 
 let clueButton = document.getElementById("clue-button");
@@ -69,6 +92,7 @@ function showElements() {
     single.innerHTML = "";
   });
   document.getElementById("answer").innerHTML = "";
+  document.getElementById("final-answer").innerHTML = "";
   document.getElementById("number").value = "";
 }
 
